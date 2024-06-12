@@ -10,7 +10,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.com.fiap.labelmail.screens.CalendarioScreen
+import br.com.fiap.labelmail.screens.EnviadosScreen
+import br.com.fiap.labelmail.screens.ExcluidosScreen
 import br.com.fiap.labelmail.screens.HomeScreen
+import br.com.fiap.labelmail.screens.LixoEletronicoScreen
+import br.com.fiap.labelmail.screens.RascunhosScreen
 import br.com.fiap.labelmail.ui.theme.LabelMailTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,6 +34,11 @@ class MainActivity : ComponentActivity() {
                         startDestination = "home"
                     ) {
                         composable(route = "home") { HomeScreen(navController) }
+                        composable(route = "enviados") { EnviadosScreen(navController) }
+                        composable(route = "rascunhos") { RascunhosScreen(navController) }
+                        composable(route = "excluidos") { ExcluidosScreen(navController) }
+                        composable(route = "lixo-eletronico") { LixoEletronicoScreen(navController) }
+                        composable(route = "calendario") { CalendarioScreen(navController) }
                     }
                 }
             }
