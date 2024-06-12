@@ -82,7 +82,6 @@ fun Content() {
             .fillMaxSize()
             .padding(24.dp)
     ) {
-        Text("Conteúdo da aplicação")
         Column {
             ElevatedButton(
                 onClick = { println("Todos") },
@@ -218,11 +217,88 @@ fun Content() {
             }
         }
 
-
-//
-//
-//
-//
+        Column {
+            ElevatedButton(
+                onClick = { println("Educação") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x20F44B4B)
+                ),
+                elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 0.dp),
+                shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(
+                    start = 10.dp,
+                    end = 10.dp,
+                    top = 8.dp,
+                    bottom = 8.dp
+                )
+            ) {
+                Text("Educação", color = Color(0xFFF44B4B), fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
+            }
+            ElevatedButton(
+                onClick = { println("Família") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x20F4884B)
+                ),
+                elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 0.dp),
+                shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(
+                    start = 10.dp,
+                    end = 10.dp,
+                    top = 8.dp,
+                    bottom = 8.dp
+                )
+            ) {
+                Text("Família", color = Color(0xFFF4884B), fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
+            }
+            ElevatedButton(
+                onClick = { println("Importante") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x20EDC254)
+                ),
+                elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 0.dp),
+                shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(
+                    start = 10.dp,
+                    end = 10.dp,
+                    top = 8.dp,
+                    bottom = 8.dp
+                )
+            ) {
+                Text("Importante", color = Color(0xFFEDC254), fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
+            }
+            ElevatedButton(
+                onClick = { println("Propaganda") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x20B44BF4)
+                ),
+                elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 0.dp),
+                shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(
+                    start = 10.dp,
+                    end = 10.dp,
+                    top = 8.dp,
+                    bottom = 8.dp
+                )
+            ) {
+                Text("Propaganda", color = Color(0xFFB44BF4), fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
+            }
+            ElevatedButton(
+                onClick = { println("Social") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0x204BA3F4)
+                ),
+                elevation = ButtonDefaults.elevatedButtonElevation(defaultElevation = 0.dp),
+                shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(
+                    start = 10.dp,
+                    end = 10.dp,
+                    top = 8.dp,
+                    bottom = 8.dp
+                )
+            ) {
+                Text("Social", color = Color(0xFF4BA3F4), fontWeight = FontWeight.SemiBold, fontSize = 12.sp)
+            }
+        }
     }
 }
 
