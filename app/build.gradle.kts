@@ -77,4 +77,5 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx.v261)
     implementation(libs.androidx.activity.compose.v172)
     implementation(libs.androidx.foundation.layout)
+    implementation(libs.coil.compose)
 }
