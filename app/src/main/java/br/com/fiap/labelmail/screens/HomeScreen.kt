@@ -43,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -87,7 +88,10 @@ fun HomeScreen(navController: NavHostController) {
                     Image(
                         painter = painterResource(id = R.drawable.logo),
                         contentDescription = "Logo",
-                        modifier = Modifier.fillMaxHeight().padding(end = 6.dp).size(40.dp)
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .padding(end = 6.dp)
+                            .size(40.dp)
                     )
                 }
             )
@@ -103,6 +107,70 @@ fun HomeScreen(navController: NavHostController) {
             Content(navController)
         }
     )
+}
+
+@Composable
+fun DrawerContent(onClose: () -> Unit, navController: NavHostController) {
+    val menuItems = listOf(
+        MenuItem("Enviados", R.drawable.send, "enviados"),
+        MenuItem("Rascunhos", R.drawable.file, "rascunhos"),
+        MenuItem("Excluídos", R.drawable.trash, "excluidos"),
+        MenuItem("Lixo Eletrônico", R.drawable.alert_circle, "lixo-eletronico"),
+        MenuItem("Calendário", R.drawable.calendar, "calendario")
+    )
+
+    Column(
+//        modifier = Modifier.fillMaxSize().padding(18.dp),
+    ) {
+        IconButton(onClick = onClose) {
+            Icon(
+                painter = painterResource(id = R.drawable.baseline_close_24),
+                contentDescription = "Close"
+            )
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(24.dp),
+        ) {
+            Text(text = "Menu", fontSize = 24.sp, modifier = Modifier.padding(bottom = 16.dp), fontWeight = FontWeight.Bold)
+
+            Column() {
+                IconButton(onClick = onClose) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.home),
+                            contentDescription = "Home"
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Text(text = "Caixa de Entrada", fontSize = 16.sp)
+                    }
+                }
+                menuItems.forEach { menuItem ->
+                    IconButton(
+                        onClick = { navController.navigate(menuItem.route) },
+                        content = {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Icon(
+                                    painter = painterResource(id = menuItem.iconId),
+                                    contentDescription = menuItem.title
+                                )
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Text(text = menuItem.title, fontSize = 16.sp)
+                            }
+                        }
+                    )
+                }
+            }
+        }
+    }
 }
 
 @Composable
@@ -125,7 +193,7 @@ fun Content(navController: NavHostController) {
         Row(
             modifier = Modifier
                 .horizontalScroll(buttonsScrollState)
-                .padding(start = 24.dp, top = 24.dp, bottom = 24.dp)
+                .padding(start = 24.dp, top = 16.dp, bottom = 16.dp)
         ) {
             buttons.forEachIndexed { index, button ->
                 ElevatedButton(
@@ -196,24 +264,27 @@ fun DynamicCard(
 
                 Spacer(modifier = Modifier.width(20.dp))
 
-                Column {
+                Column(Modifier.weight(1f)) {
                     Row(
                         modifier = Modifier
                             .padding(bottom = 10.dp)
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Column {
+                        Column(Modifier.weight(1f)) {
                             Text(
                                 text = title,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 18.sp,
-                                modifier = Modifier.padding(bottom = 4.dp)
+                                modifier = Modifier.padding(bottom = 6.dp)
                             )
                             Text(
                                 text = description,
                                 color = Color.Gray,
-                                fontSize = 14.sp
+                                fontSize = 14.sp,
+                                style = TextStyle(
+                                    lineHeight = 20.sp
+                                )
                             )
                         }
                         Column {
@@ -270,20 +341,25 @@ fun DynamicCard(
 
 @Composable
 fun CardList(navController: NavController) {
+//    SimpleButton("Educação", Color(0x20F44B4B), Color(0xFFF44B4B))
+//    SimpleButton("Família", Color(0x20F4884B), Color(0xFFF4884B))
+//    SimpleButton("Importante", Color(0x20EDC254), Color(0xFFEDC254))
+//    SimpleButton("Propaganda", Color(0x20B44BF4), Color(0xFFB44BF4))
+//    SimpleButton("Social", Color(0x204BA3F4), Color(0xFF4BA3F4))
     val emails = listOf(
         EmailData(
             title = "GitHub Education",
-            description = "Hey! We're back with an action-packed...",
+            description = "Estamos de volta com um conteúdo cheio de ação...",
             time = "15:01",
             categories = listOf(
                 SimpleButton("Educação", Color(0x20F44B4B), Color(0xFFF44B4B)),
-                SimpleButton("Tech", Color(0x20EDC254), Color(0xFFEDC254))
+                SimpleButton("Social", Color(0x204BA3F4), Color(0xFF4BA3F4))
             ),
             userInitial = "G"
         ),
         EmailData(
-            title = "Meeting Reminder",
-            description = "Don't forget about our meeting...",
+            title = "Microsoft Teams",
+            description = "Não se esqueça da sua reunião amanhã.",
             time = "14:30",
             categories = listOf(
                 SimpleButton("Importante", Color(0x20EDC254), Color(0xFFEDC254)),
@@ -292,64 +368,64 @@ fun CardList(navController: NavController) {
             userInitial = "M"
         ),
         EmailData(
-            title = "Family Gathering",
-            description = "Looking forward to seeing everyone....",
+            title = "Henry Walker",
+            description = "Ansioso para ver todos no nosso encontro de família.",
             time = "12:00",
             categories = listOf(
                 SimpleButton("Família", Color(0x20F4884B), Color(0xFFF4884B)),
                 SimpleButton("Social", Color(0x204BA3F4), Color(0xFF4BA3F4))
             ),
-            userInitial = "F"
+            userInitial = "H"
         ),
         EmailData(
-            title = "Promotion Alert!",
-            description = "Congratulations! You've been promo...",
+            title = "RH",
+            description = "Parabéns! Você foi promovido a Desenvolvedor Sênior",
             time = "09:45",
             categories = listOf(
                 SimpleButton("Trabalho", Color(0x20F44B4B), Color(0xFFF44B4B)),
                 SimpleButton("Importante", Color(0x20EDC254), Color(0xFFEDC254))
             ),
-            userInitial = "P"
+            userInitial = "R"
         ),
         EmailData(
-            title = "Social Media Notification",
-            description = "You have new notifications from...",
+            title = "Instagram",
+            description = "Você tem novas notificações",
             time = "08:20",
             categories = listOf(
                 SimpleButton("Social", Color(0x204BA3F4), Color(0xFF4BA3F4)),
                 SimpleButton("Notificação", Color(0x20B44BF4), Color(0xFFB44BF4))
             ),
-            userInitial = "S"
+            userInitial = "I"
         ),
         EmailData(
-            title = "Urgent Task Assignment",
-            description = "New task assigned. Please review...",
-            time = "16:50",
+            title = "Isabella Young",
+            description = "Nova tarefa atribuída. Por favor, revise e forneça feedback o mais rápido possível.",
+            time = "12/06",
             categories = listOf(
                 SimpleButton("Trabalho", Color(0x20F44B4B), Color(0xFFF44B4B)),
                 SimpleButton("Importante", Color(0x20EDC254), Color(0xFFEDC254))
             ),
-            userInitial = "U"
+            userInitial = "I"
         ),
         EmailData(
-            title = "Vacation Planning",
-            description = "Let's plan our next vacation!...",
-            time = "11:15",
+            title = "Trivago",
+            description = "Vamos planejar nossas próximas férias juntos. Confira as opções!",
+            time = "12/06",
             categories = listOf(
-                SimpleButton("Férias", Color(0x20F4884B), Color(0xFFF4884B)),
-                SimpleButton("Família", Color(0x20F4884B), Color(0xFFF4884B))
+                SimpleButton("Família", Color(0x20F4884B), Color(0xFFF4884B)),
+                SimpleButton("Férias", Color(0x20F4884B), Color(0xFFF4884B))
             ),
-            userInitial = "V"
+            userInitial = "T"
         ),
         EmailData(
-            title = "Reminder: Webinar Tomorrow",
-            description = "Join us for an insightful...",
-            time = "10:00",
+            title = "FreeCodeCamp",
+            description = "Junte-se a nós para uma sessão de webinar informativa amanhã.",
+            time = "12/06",
             categories = listOf(
                 SimpleButton("Educação", Color(0x20F44B4B), Color(0xFFF44B4B)),
-                SimpleButton("Tech", Color(0x20EDC254), Color(0xFFEDC254))
+                SimpleButton("Social", Color(0x204BA3F4), Color(0xFF4BA3F4))
             ),
-            userInitial = "R"
+            userInitial = "F"
         )
     )
 
@@ -363,69 +439,6 @@ fun CardList(navController: NavController) {
                 categories = email.categories,
                 userInitial = email.userInitial
             )
-        }
-    }
-}
-
-
-@Composable
-fun DrawerContent(onClose: () -> Unit, navController: NavHostController) {
-    val menuItems = listOf(
-        MenuItem("Enviados", R.drawable.send, "enviados"),
-        MenuItem("Rascunhos", R.drawable.file, "rascunhos"),
-        MenuItem("Excluídos", R.drawable.trash, "excluidos"),
-        MenuItem("Lixo Eletrônico", R.drawable.alert_circle, "lixo-eletronico"),
-        MenuItem("Calendário", R.drawable.calendar, "calendario")
-    )
-
-    Column(
-//        modifier = Modifier.fillMaxSize().padding(18.dp),
-    ) {
-        IconButton(onClick = onClose) {
-            Icon(
-                painter = painterResource(id = R.drawable.baseline_close_24),
-                contentDescription = "Close"
-            )
-        }
-
-        Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(24.dp),
-        ) {
-            Text(text = "Menu", fontSize = 24.sp, modifier = Modifier.padding(bottom = 16.dp), fontWeight = FontWeight.Bold)
-
-            Column {
-                IconButton(onClick = onClose) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.home),
-                            contentDescription = "Home"
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        Text(text = "Caixa de Entrada", fontSize = 16.sp)
-                    }
-                }
-                menuItems.forEach { menuItem ->
-                    IconButton(
-                        onClick = { navController.navigate(menuItem.route) },
-                        content = {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Icon(
-                                    painter = painterResource(id = menuItem.iconId),
-                                    contentDescription = menuItem.title
-                                )
-                                Spacer(modifier = Modifier.width(12.dp))
-                                Text(text = menuItem.title, fontSize = 16.sp)
-                            }
-                        }
-                    )
-                }
-            }
         }
     }
 }
