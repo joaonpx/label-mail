@@ -219,7 +219,8 @@ fun ExcluidosCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Lixeira", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "E"
+            userInitial = "E",
+            category = "Promoção"
         ),
         EmailData(
             title = "Newsletter",
@@ -229,7 +230,8 @@ fun ExcluidosCardList(navController: NavController) {
                 SimpleButton("Notícias", Color(0x20F44B4B), Color(0xFFF44B4B)),
                 SimpleButton("Lixeira", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "N"
+            userInitial = "N",
+            category = "Notícias"
         ),
         EmailData(
             title = "Promoção de Férias",
@@ -239,7 +241,8 @@ fun ExcluidosCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Lixeira", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "P"
+            userInitial = "P",
+            category = "Promoção"
         ),
         EmailData(
             title = "Restaurante XYZ",
@@ -249,7 +252,8 @@ fun ExcluidosCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Lixeira", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "R"
+            userInitial = "R",
+            category = "Promoção"
         ),
         EmailData(
             title = "Sorteio de Prêmios",
@@ -259,7 +263,8 @@ fun ExcluidosCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Lixeira", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "S"
+            userInitial = "S",
+            category = "Promoção"
         )
     )
 

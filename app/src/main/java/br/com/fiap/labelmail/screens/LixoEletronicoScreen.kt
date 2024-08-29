@@ -221,7 +221,8 @@ fun LixoEletronicoCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Spam", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "P"
+            userInitial = "P",
+            category = "Promoção"
         ),
         EmailData(
             title = "Sorte Online",
@@ -231,7 +232,8 @@ fun LixoEletronicoCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Spam", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "S"
+            userInitial = "S",
+            category = "Promoção"
         ),
         EmailData(
             title = "Viagens Econômicas",
@@ -241,7 +243,8 @@ fun LixoEletronicoCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Spam", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "V"
+            userInitial = "V",
+            category = "Promoção"
         ),
         EmailData(
             title = "Prêmios Online",
@@ -251,7 +254,8 @@ fun LixoEletronicoCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Spam", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "P"
+            userInitial = "P",
+            category = "Promoção"
         ),
         EmailData(
             title = "Descontos Express",
@@ -261,7 +265,8 @@ fun LixoEletronicoCardList(navController: NavController) {
                 SimpleButton("Promoção", Color(0x20B44BF4), Color(0xFFB44BF4)),
                 SimpleButton("Spam", Color(0x206D7072), Color(0xFF6D7072))
             ),
-            userInitial = "D"
+            userInitial = "D",
+            category = "Promoção"
         )
     )
 

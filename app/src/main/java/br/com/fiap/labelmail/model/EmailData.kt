@@ -5,5 +5,6 @@ data class EmailData(
     val description: String,
     val time: String,
     val categories: List<SimpleButton>,
-    val userInitial: String
+    val userInitial: String,
+    val category: String
 )

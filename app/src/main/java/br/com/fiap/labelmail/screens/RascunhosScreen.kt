@@ -1,6 +1,7 @@
 package br.com.fiap.labelmail.screens
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,8 +18,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.labelmail.R
@@ -61,7 +64,13 @@ fun RascunhosContent() {
             .fillMaxSize()
             .padding(24.dp),
     ) {
-        Text("Rascunhos")
-
+        Text(text = "Rascunhos", fontSize = 24.sp, modifier = Modifier.padding(bottom = 16.dp), fontWeight = FontWeight.Bold)
+        Box(
+            modifier = Modifier
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text("Não há rascunhos salvos.", fontSize = 14.sp, color = Color.Gray)
+        }
     }
 }

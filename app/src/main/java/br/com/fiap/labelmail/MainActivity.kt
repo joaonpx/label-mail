@@ -11,10 +11,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.labelmail.screens.CalendarioScreen
+import br.com.fiap.labelmail.screens.EmailScreen
 import br.com.fiap.labelmail.screens.EnviadosScreen
 import br.com.fiap.labelmail.screens.ExcluidosScreen
 import br.com.fiap.labelmail.screens.HomeScreen
 import br.com.fiap.labelmail.screens.LixoEletronicoScreen
+import br.com.fiap.labelmail.screens.NovoEmailScreen
 import br.com.fiap.labelmail.screens.RascunhosScreen
 import br.com.fiap.labelmail.ui.theme.LabelMailTheme
 
@@ -39,6 +41,8 @@ class MainActivity : ComponentActivity() {
                         composable(route = "excluidos") { ExcluidosScreen(navController) }
                         composable(route = "lixo-eletronico") { LixoEletronicoScreen(navController) }
                         composable(route = "calendario") { CalendarioScreen(navController) }
+                        composable(route = "novo-email") { NovoEmailScreen(navController) }
+                        composable(route = "email-info") { EmailScreen(navController) }
                     }
                 }
             }
