@@ -22,15 +22,9 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -41,7 +35,6 @@ import androidx.navigation.compose.rememberNavController
 import br.com.fiap.labelmail.R
 import br.com.fiap.labelmail.model.SimpleButton
 import androidx.compose.material3.ElevatedButton
-
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
