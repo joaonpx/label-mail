@@ -33,7 +33,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -50,14 +49,11 @@ import androidx.navigation.compose.rememberNavController
 import br.com.fiap.labelmail.R
 import br.com.fiap.labelmail.model.EmailData
 import br.com.fiap.labelmail.model.SimpleButton
-import kotlinx.coroutines.launch
-
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun LixoEletronicoScreen(navController: NavHostController) {
     val scaffoldState = rememberScaffoldState()
-    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         scaffoldState = scaffoldState,

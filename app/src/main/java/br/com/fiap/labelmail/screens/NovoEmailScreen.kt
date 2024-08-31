@@ -1,7 +1,6 @@
 package br.com.fiap.labelmail.screens
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,7 +31,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,7 +53,6 @@ import br.com.fiap.labelmail.R
 @Composable
 fun NovoEmailScreen(navController: NavHostController) {
     val scaffoldState = rememberScaffoldState()
-    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -201,21 +198,6 @@ fun CustomTextField(
             unfocusedLabelColor = Color.Gray
         )
     )
-}
-
-private fun sendEmail(context: android.content.Context, to: String, subject: String, message: String) {
-    val emailIntent = Intent(Intent.ACTION_SEND).apply {
-        type = "message/rfc822"
-        putExtra(Intent.EXTRA_EMAIL, arrayOf(to))
-        putExtra(Intent.EXTRA_SUBJECT, subject)
-        putExtra(Intent.EXTRA_TEXT, message)
-    }
-
-    try {
-        context.startActivity(Intent.createChooser(emailIntent, "Escolha um cliente de e-mail"))
-    } catch (e: android.content.ActivityNotFoundException) {
-        Toast.makeText(context, "Não há clientes de e-mail instalados.", Toast.LENGTH_SHORT).show()
-    }
 }
 
 @Preview(showBackground = true, showSystemUi = true)

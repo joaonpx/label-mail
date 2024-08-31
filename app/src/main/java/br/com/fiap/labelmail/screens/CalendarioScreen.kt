@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Button
 import androidx.compose.material.Checkbox
 import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Icon
@@ -38,14 +37,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.labelmail.R
-import kotlinx.coroutines.launch
-
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun CalendarioScreen(navController: NavHostController) {
     val scaffoldState = rememberScaffoldState()
-    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -65,13 +61,13 @@ fun CalendarioScreen(navController: NavHostController) {
             )
         },
         content = {
-            CalendarioContent(navController)
+            CalendarioContent()
         }
     )
 }
 
 @Composable
-fun CalendarioContent(navController: NavHostController) {
+fun CalendarioContent() {
     val context = LocalContext.current
 
     Column(

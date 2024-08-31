@@ -43,7 +43,6 @@ import br.com.fiap.labelmail.R
 import br.com.fiap.labelmail.model.EmailSimplesData
 import br.com.fiap.labelmail.model.SimpleButton
 
-
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun EnviadosScreen(navController: NavHostController) {

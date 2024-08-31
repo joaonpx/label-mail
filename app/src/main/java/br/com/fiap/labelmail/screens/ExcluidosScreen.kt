@@ -49,15 +49,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.labelmail.R
 import br.com.fiap.labelmail.model.EmailData
-import br.com.fiap.labelmail.model.EmailSimplesData
 import br.com.fiap.labelmail.model.SimpleButton
-
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ExcluidosScreen(navController: NavHostController) {
     val scaffoldState = rememberScaffoldState()
-    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         scaffoldState = scaffoldState,
