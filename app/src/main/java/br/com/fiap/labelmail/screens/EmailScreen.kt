@@ -1,6 +1,7 @@
 package br.com.fiap.labelmail.screens
 
 import android.annotation.SuppressLint
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -250,3 +251,9 @@ GitHub Education Team
     }
 }
 
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun EmailPreview() {
+    val navController = rememberNavController()
+    EmailScreen(navController)
+}

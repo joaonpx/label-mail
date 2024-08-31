@@ -171,3 +171,10 @@ fun CategoryCheckboxList() {
         }
     }
 }
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun CalendarioPreview() {
+    val navController = rememberNavController()
+    CalendarioScreen(navController)
+}

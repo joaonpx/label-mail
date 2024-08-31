@@ -44,9 +44,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.com.fiap.labelmail.R
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -214,4 +216,11 @@ private fun sendEmail(context: android.content.Context, to: String, subject: Str
     } catch (e: android.content.ActivityNotFoundException) {
         Toast.makeText(context, "Não há clientes de e-mail instalados.", Toast.LENGTH_SHORT).show()
     }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun NovoEmailPreview() {
+    val navController = rememberNavController()
+    NovoEmailScreen(navController)
 }

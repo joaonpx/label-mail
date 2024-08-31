@@ -283,3 +283,10 @@ fun LixoEletronicoCardList(navController: NavController) {
         }
     }
 }
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun LixoEletronicoPreview() {
+    val navController = rememberNavController()
+    LixoEletronicoScreen(navController)
+}
