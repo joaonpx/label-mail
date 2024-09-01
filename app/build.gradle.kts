@@ -78,4 +78,8 @@ dependencies {
     implementation(libs.androidx.activity.compose.v172)
     implementation(libs.androidx.foundation.layout)
     implementation(libs.coil.compose)
+    //noinspection UseTomlInstead
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    //noinspection UseTomlInstead
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
