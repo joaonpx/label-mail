@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.provider.CalendarContract
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -72,15 +74,16 @@ fun CalendarioContent() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
     ) {
-        Text(text = "Calendário", fontSize = 24.sp, modifier = Modifier.padding(bottom = 16.dp), fontWeight = FontWeight.Bold)
+        Text(text = "Calendário", fontSize = 24.sp, modifier = Modifier.padding(start = 24.dp, top = 16.dp, bottom = 16.dp), fontWeight = FontWeight.Bold)
 
         CategoryCheckboxList()
 
+        Spacer(modifier = Modifier.weight(1f))
+
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween // Aplica o espaço entre os elementos na linha
+            modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             TextButton(
                 onClick = {
@@ -91,7 +94,7 @@ fun CalendarioContent() {
                     context.startActivity(intent)
                 },
             ) {
-                Text("Salvar", color = Color(0xFF8EB129))
+                Text("Abrir Calendário", color = Color(0xFF0c0c0c), fontSize = 16.sp)
             }
             TextButton(
                 onClick = {
@@ -102,11 +105,12 @@ fun CalendarioContent() {
                     context.startActivity(intent)
                 },
             ) {
-                Text("Abrir Calendário", color = Color(0xFF0c0c0c))
+                Text("Salvar", color = Color(0xFF37C033), fontSize = 16.sp)
             }
         }
     }
 }
+
 
 @Composable
 fun CategoryCheckboxList() {
@@ -122,7 +126,7 @@ fun CategoryCheckboxList() {
     val checkedState = remember { mutableStateListOf(*Array(categories.size) { false }) }
 
     LazyColumn(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth().padding(start = 16.dp)
     ) {
         items(categories.size) { index ->
             val category = categories[index]
